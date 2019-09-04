@@ -1,0 +1,252 @@
+ion-card {
+    padding: 15px 15px 0 15px;
+    margin: 0 0 5px 0;
+    background: #fff;
+    /* border-bottom: 1px solid lightgray; */
+    box-shadow: none;
+    --webkit-box-shadow: none;
+}
+.container {
+    background: whitesmoke;
+    height: 100%;
+}
+ion-header {
+    z-index: 0;
+    border-bottom: 1px solid lightgray;
+  }
+ion-content {
+    background-color: #F3F3F3;
+}
+.default-card {
+    height: auto;
+}
+.default-text {
+    margin: 110px 70px;
+}
+#fabBtn {
+    /*    background-color: #ec6f04; */
+    border-radius: 5px;
+    /*  width: 90px;
+    position: absolute;
+    left: 160px; */
+}
+
+#fabBtn ion-label {
+    margin: 0;
+    color: #fff;
+}
+ion-fab-button {
+    --border-radius: 20px;
+    width: 80px;
+    height: 30px;
+    --background: #0075ff;
+}
+.categoryIcon {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    position: relative;
+    bottom: 10px;
+    right: 1px;
+}
+
+.head {
+    font-size: 15px;
+    font-weight: 500;
+    margin: 0 0 5px 0;
+    color: #101010;
+}
+.veg-toggle {
+   margin: 0!important;
+   padding: 10px 15px 5px 15px!important;
+}
+.toggleDiv {
+         border-bottom: 2px solid lightgrey; 
+         margin-bottom: 10px;
+}
+.toggleDiv ion-label {
+    font-size: 13px;
+    color: gray;
+    font-weight: 500;
+}
+.restDesc {
+    margin-top: 15px;
+    border-top: 2px solid lightgray;
+
+}
+.restDesc ion-row {
+    text-align: center;
+}
+h4 {
+    margin: 0;
+    display: inline-block;
+    text-transform: none !important;
+    font-weight: 500;
+    font-size: 15px;
+    max-width: 210px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #262727;
+}
+.itemDetail .desc {
+    margin: 5px 0;
+    font-size: 14px;
+    width: 210px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.itemDetail p {
+    margin: 0;
+    font-size: 14px;
+    color: gray;
+}
+.itemDetail .amount {
+    margin: 0;
+    font-weight: 500;
+}
+
+.foodType {
+    float: right;
+    font-weight: bold;
+    font-size: 17px;
+    color: #1f1f1f !important;
+    position: relative;
+    bottom: 10px;
+    /* display: inline-block; */
+}
+
+.ratingLikes {
+    float: right;
+    position: relative;
+    bottom: 13px;
+}
+
+.starIcon {
+    font-size: 25px;
+    color: darkorange;
+    position: relative;
+    top: 5px;
+}
+.chef-head {
+    display: inline-block;
+}
+.heartIcon {
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+}
+
+
+ .rating {
+    position: relative;
+    bottom: 3px;
+}
+.restaurantDetail {
+    margin: 0 0 15px 0!important;
+}
+.rating ion-icon {
+    font-size: 20px;
+    margin-right: 5px;
+    position: relative;
+    top: 4px;
+}
+
+.rating p {
+    display: inline;
+    font-size: 14px;
+    color: #101010;
+}
+
+
+.rateIcon {
+    height: 25px;
+    width: 25px;
+    display: inline-block;
+    position: relative;
+    top: 7px;
+}
+.eta, .offerText {
+    margin-bottom: 0;
+    color: #101010;
+    margin: 10px 0 5px 0;
+}
+
+.small-text {
+    font-size: 12px!important;
+    color: #737373!important;
+    margin: 5px 0;
+}
+
+.footerData {
+    margin: 10px 0;
+}
+.rate-value {
+    position: relative;
+    bottom: 10px;
+    left: 5px;
+}
+.recommended-menu {
+    margin: 2px;
+}
+.menu-image {
+    width: 100%;
+    height: 110px;
+
+}
+.menu-type {
+    margin: 5px 0;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+.menu-name {
+    display: inline-block;
+    margin: 5px 0 5px 3px;
+    font-size: 14px;
+    font-weight: 500;
+    position: relative;
+    bottom: 5px;
+    width: 125px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.amount {
+    font-weight: 500;
+    margin: 5px 0;
+}
+.add-btn-sec {
+    position: relative;
+    bottom: 5px;
+}
+.add-btn {
+    position: absolute;
+    right: 0;
+    top: 25px;
+}
+/* --------------Cart--------------- */
+#footerBtn {
+    text-align: center;
+}
+.toCartBtn {
+    float: right;
+    margin-right: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #fff;
+}
+.toCartBtn ion-icon {
+    position: relative;
+    top: 2px
+}
+
+#finalRate {
+    float: left;
+    margin-left: 15px;
+    font-size: 15px;
+    color: #f5ecec;
+    font-weight: bold;
+    position: relative;
+    top: 5px;
+}

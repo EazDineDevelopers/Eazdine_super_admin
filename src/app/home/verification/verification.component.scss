@@ -1,0 +1,33 @@
+.content {
+    padding: 10px;
+}
+.c1 {
+    background: lavender;
+}
+.c2 {
+    background: #e6faf4;
+}
+.c3 {
+    background: #f8fae6;
+}
+.c4 {
+    background: #faf0e6;
+}
+.c1 p, .c2 p, .c3 p, .c4 p {
+    margin-top: 0px;
+    text-align: center;
+}
+ion-col {
+    height: 130px;
+
+}
+.unverified {
+    color: red;
+    font-size: 25px;
+    margin: 20px 70px 0;
+}
+.verified {
+    color: green;
+    font-size: 25px;
+    margin: 20px 70px 0;
+}

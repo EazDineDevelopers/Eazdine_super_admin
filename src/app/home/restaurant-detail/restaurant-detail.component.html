@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="goBack()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Restaurant Detail</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+  <!--     <ion-fab vertical="bottom" horizontal="center" slot="fixed" id="fabBtn">
+          <ion-fab-button (click)="gotoFilterPage()">
+            <ion-icon class="menu" mode="ios" name="restaurant"></ion-icon>&nbsp;&nbsp;Menu
+          </ion-fab-button>
+        </ion-fab> -->
+    <div class="container">
+      <ion-card class="restaurantDetail">
+    <p class="head">{{restaurant.name}}</p>
+        <p style="margin: 0;">{{restaurant.addressText}}</p>
+        <div class="restDesc">
+          <ion-row>
+            <ion-col size="4">
+                <div class="rating">
+                    <ion-img class="rateIcon" src="assets/images/rated.png"></ion-img>
+                    <p>{{restaurant.rating}}</p>
+                    <p class="small-text" style="display: inline-block;">100 Ratings</p>
+                  </div>
+            </ion-col>
+            <ion-col size="4">
+                <p class="eta">&nbsp; 25 mins &nbsp;</p>
+                   <p class="small-text">Expected time</p>
+              </ion-col>
+              <ion-col size="4">
+                  <p class="offerText">
+                      {{restaurant.offerText}}</p>    
+                      <p class="small-text">On 1st two orders</p>    
+                </ion-col>
+          </ion-row>
+        </div>
+      </ion-card>
+      </div>
+      </ion-content>

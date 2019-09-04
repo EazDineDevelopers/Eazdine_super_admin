@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="end">
+        <ion-button (click)="close()">
+          <ion-icon name="close"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Verification Modal</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <div class="content">
+      <ion-item *ngIf="type == 'REG'">
+        <ion-label position="floating">Enter Registration Number</ion-label>
+        <ion-input type="text" [(ngModel)]="value"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="type == 'OEV'">
+          <ion-label position="floating">Enter Owner Email Verification Code</ion-label>
+          <ion-input type="text" [(ngModel)]="value"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="type == 'OMV'">
+            <ion-label position="floating">Enter Owner Mobile Verification Code</ion-label>
+            <ion-input type="text" [(ngModel)]="value"></ion-input>
+          </ion-item>
+        <ion-item *ngIf="type == 'REV'">
+            <ion-label position="floating">Enter Restarant Email Verification Code</ion-label>
+            <ion-input type="text" [(ngModel)]="value"></ion-input>
+          </ion-item>
+          <div class="submitBtn">
+            <ion-button (click)="submit()">Submit</ion-button>
+          </div>
+    </div>
+    </ion-content>

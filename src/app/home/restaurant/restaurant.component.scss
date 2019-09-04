@@ -1,0 +1,164 @@
+ion-card {
+    margin: 0 0 5px 0;
+    padding: 0 13px 5px;
+/*     border-top: 1px solid #e6e6e6;
+ */    -webkit-box-shadow: none;
+    box-shadow: none;
+    background: #fff;
+}
+
+ion-card p {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.restaurantDetail {
+    text-align: left;
+    margin-top: 7px;
+    margin-left: 15px;
+    padding-bottom: 10px;
+    /*  border-bottom: 1px solid #e6e6e6; */
+}
+.restaurant-image-col {
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 5px;
+    padding: 5px 0px 0 0;
+}
+.detail-col {
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 5px;
+}
+.resImage {
+    width: 85px;
+    height: 80px;
+}
+
+ion-button {
+    text-transform: none;
+}
+
+.restaurantName {
+    font-size: 14px !important;
+    margin: 0;
+    text-align: left;
+    font-weight: 500;
+    color: #272626;
+    display: inline-block;
+    width: 125px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.infoIcon {
+    font-size: 20px;
+    position: relative;
+    bottom: 3px;
+    left: 5px;
+    color: #ec6f04;
+}
+
+.restaurantDetail span {
+    font-size: 13px;
+}
+
+.openBtn {
+    float: right;
+    background: #000;
+    color: #fff;
+    padding: 3px 4px;
+}
+
+.drinksBtn {
+    float: right;
+    font-size: 18px;
+    display: inline-block;
+    /* color: #DF0989;; */
+    padding: 3px 4px;
+    margin: 0;
+}
+.verified {
+    color: green;
+}
+.unverified {
+    color: red;
+}
+.closeBtn {
+    float: right;
+    background: lightgray;
+    color: #a79d9d;
+    padding: 3px 4px;
+}
+
+.linkBtns {
+    color: #ec6f04;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.quickLink {
+    margin-right: 10px;
+}
+
+.hostLink {
+    margin-left: 10px;
+}
+
+.rating {
+    float: left;
+    position: relative;
+    right: 6px;
+    top: 2px;
+    display: inline-block;
+   
+}
+
+.rating ion-icon {
+    font-size: 20px;
+    margin-right: 5px;
+    position: relative;
+    top: 4px;
+}
+
+.rating p {
+    display: inline;
+    font-size: 14px;
+}
+
+.host {
+    --color-selected: var(--ion-tabbar-text-color-active, #ec6f04);
+}
+.eta {
+    margin: 0;
+    position: relative;
+    top: 10px;
+    left: 10px;
+    display: inline-block;
+}
+.offerText {
+    float: right;
+    position: relative;
+    bottom: 3px;
+    right: 10px;
+    font-size: 13px;
+    color: forestgreen;
+    max-width: 145px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 15px 0px;
+}
+
+.more {
+    font-weight: 500;
+}
+
+.rate-icon {
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+}
+
+.rating p {
+    bottom: 8px;
+    position: relative;
+}

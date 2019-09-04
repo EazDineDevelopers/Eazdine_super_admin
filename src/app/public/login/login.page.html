@@ -1,0 +1,45 @@
+<ion-content padding>
+  <p class="head"><span class="eaz">Eaz</span>Dine</p> 
+ <!--  <p class="page-name">USER LOG IN</p> -->
+  <div class="social-media no-border">
+    <ion-row>
+      <ion-col size="6">
+        <ion-button class="fb-btn" icon="logo-facebook" size="medium" expand="full" (click)="fbLogin()">
+          <ion-img class="login-icon" src="assets/icon/fb-login.png"></ion-img>
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button class="google-btn" icon="logo-google" size="medium" expand="full" (click)="googleLogin()">
+          <ion-img src="assets/icon/google-login.png" class="login-icon"></ion-img>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+  <ion-item class="border-bottom no-border">
+  </ion-item>
+  <p class="or"> Or </p>
+  <p style="color: #ea6153;text-align:center"></p>
+  <div class="border no-border">
+    <ion-input type="text" placeholder="Enter Email/Phone Number" [(ngModel)]="loginDetail.email"></ion-input>
+  </div>
+  <div class="border no-border">
+    <ion-input placeholder="Enter Password" type="password" [(ngModel)]="password"></ion-input>
+  </div>
+
+  <div class="btn-container no-border">
+    <ion-button size="medium" expand="block" class="login-btn" (click)="login()">
+      <ion-spinner color="light" *ngIf="progress" name="dots"></ion-spinner>
+      <span *ngIf="!progress" class="btn-text">LOGIN</span>
+    </ion-button>
+  </div>
+  <ion-item class="no-border">
+    <a class="forgotPasswordLink"> Forgot Password?</a>
+  </ion-item>
+  <!-- <ion-item class="no-border">
+    <p class="otherOption">
+      Don't have an account?&nbsp;&nbsp;
+      <a class="signUpLink" routerLink="/register" routerDirection="forward">Sign up</a>
+    </p>
+  </ion-item> -->
+
+</ion-content>

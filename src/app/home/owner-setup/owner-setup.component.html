@@ -1,0 +1,87 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="back()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Setup Owner</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+      <div class="content">
+          <ion-searchbar showCancelButton="always" mode="ios"></ion-searchbar>
+          <form [formGroup]="ownerForm" (ngSubmit)="onFormSubmit()">
+<ion-item>
+    <ion-avatar>
+     <ion-img [src]="restaurantOwner?.imageURL?restaurantOwner?.imageURL:'assets/icon/camera-icon.jpg'"></ion-img>
+     </ion-avatar>
+       <small>Owner Profile Image</small>
+   </ion-item>
+<ion-item>
+   <ion-label position="floating">Owner First Name</ion-label>
+   <ion-input formControlName ="fname" [(ngModel)]="restaurantOwner.fname"></ion-input>
+   <ng-container *ngFor="let validation of validation_messages.fname">
+      <label *ngIf="ownerForm.get('fname').hasError(validation.type) 
+      && (ownerForm.get('fname').dirty || 
+      ownerForm.get('fname').touched)" 
+      [ngClass] = "'error'"> {{validation.message}}</label>
+      </ng-container>
+ </ion-item>
+ <ion-item>
+     <ion-label position="floating">Owner Last Name</ion-label>
+     <ion-input formControlName="lname" [(ngModel)]="restaurantOwner.lname"></ion-input>
+     <ng-container *ngFor="let validation of validation_messages.lname">
+        <label *ngIf="ownerForm.get('lname').hasError(validation.type) 
+        && (ownerForm.get('lname').dirty || 
+        ownerForm.get('lname').touched)" 
+        [ngClass] = "'error'"> {{validation.message}}</label>
+        </ng-container>
+   </ion-item>
+ 
+ 
+ <ion-item>
+     <ion-label position="floating">Owner Mobile No.</ion-label>
+     <ion-input formControlName="phone" [(ngModel)]="restaurantOwner.phone"></ion-input>
+     <ng-container *ngFor="let validation of validation_messages.phone">
+        <label *ngIf="ownerForm.get('phone').hasError(validation.type) 
+        && (ownerForm.get('phone').dirty || 
+        ownerForm.get('phone').touched)" 
+        [ngClass] = "'error'"> {{validation.message}}</label>
+        </ng-container>
+   </ion-item>
+ 
+ <ion-item>
+     <ion-label position="floating">Owner Email</ion-label>
+     <ion-input formControlName="email" [(ngModel)]="restaurantOwner.email"></ion-input>
+     <ng-container *ngFor="let validation of validation_messages.email">
+        <label *ngIf="ownerForm.get('email').hasError(validation.type) 
+        && (ownerForm.get('email').dirty || 
+        ownerForm.get('email').touched)" 
+        [ngClass] = "'error'"> {{validation.message}}</label>
+        </ng-container>
+   </ion-item>
+   <ion-item>
+       <ion-label position="floating">Owner Address</ion-label>
+       <ion-textarea formControlName="address" [(ngModel)]="restaurantOwner.address"></ion-textarea>
+       <ng-container *ngFor="let validation of validation_messages.address">
+          <label *ngIf="ownerForm.get('address').hasError(validation.type) 
+          && (ownerForm.get('address').dirty || 
+          ownerForm.get('address').touched)" 
+          [ngClass] = "'error'"> {{validation.message}}</label>
+          </ng-container>
+     </ion-item>
+     <div class="btns">
+        <ion-row>
+          <ion-col size="6">
+           <ion-button class="createBtn" color="medium"  (click)="back()">Previous</ion-button>
+             </ion-col>
+             <ion-col size="6">
+                 <ion-button type="submit" [disabled]="!ownerForm.valid" class="createBtn" color="primary" (click)="addOwner()">Add</ion-button>
+               </ion-col>
+             </ion-row>
+             </div>
+             </form>
+             </div>
+  </ion-content>

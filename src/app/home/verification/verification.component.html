@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="back()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Restaurant Verification</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+<div class="content">
+  <ion-row>
+    <ion-col size="6" class="c1" (click)="openVerificationModal('REG')">
+      <ion-icon  class="pull-right unverified" name="close-circle"></ion-icon>
+<!--       <ion-icon name="checkmark-circle"></ion-icon>--> 
+      <p>Restaurant Registration</p>
+</ion-col>
+    <ion-col size="6" class="c2" (click)="openVerificationModal('REV')">
+        <ion-icon  name="checkmark-circle" class="verified"></ion-icon>
+        <p>Restaurant Email Verification</p>
+    </ion-col>
+    <ion-col size="6" class="c3" (click)="openVerificationModal('OEV')">
+        <ion-icon  class="pull-right unverified" name="close-circle"></ion-icon>
+        <p>Owner Email Verification</p>
+    </ion-col>
+    <ion-col size="6" class="c4" (click)="openVerificationModal('OMV')">
+        <ion-icon  class="pull-right unverified" name="close-circle"></ion-icon>
+      <p>Owner Mobile Verification</p>
+    </ion-col>
+
+  </ion-row>
+</div>
+  </ion-content>
