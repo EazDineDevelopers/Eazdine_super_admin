@@ -45,7 +45,7 @@ export class LoginPage implements OnInit {
       this.progress = true;
       this.afAuth.auth.signInWithEmailAndPassword(this.loginDetail.email,this.password) 
       .then(res => {
-        this.firestore.collection('users').doc(res.user.uid).valueChanges().subscribe((user:any)=>{
+        this.firestore.collection('super_admin').doc(res.user.uid).valueChanges().subscribe((user:any)=>{
           this.authService.authenticationState.next(true);
           this.userService.changeUserBasic(user);
          this.progress = false;

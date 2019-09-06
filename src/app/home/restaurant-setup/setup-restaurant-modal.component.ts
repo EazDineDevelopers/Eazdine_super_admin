@@ -34,7 +34,7 @@ export class SetupRestaurantModalComponent implements OnInit {
   value;
   restaurantForm = new FormGroup({
   name : new FormControl('', Validators.required),
-  password: new FormControl(Validators.required),
+ // password: new FormControl(Validators.required),
   phone : new FormControl('', [Validators.required,Validators.maxLength(13)]),
   fax : new FormControl('', [Validators.required]),
   email : new FormControl('', Validators.compose([
@@ -65,7 +65,7 @@ export class SetupRestaurantModalComponent implements OnInit {
         { type: 'required', message: 'Address is required.' }
       ],
     }
-    @ViewChild('map', { static: true }) mapElement: ElementRef;
+   mapElement: ElementRef;
     map: any;
     address:string;
   constructor(
@@ -83,7 +83,7 @@ export class SetupRestaurantModalComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.restaurantBasic.password = Math.floor(100000 + Math.random() * 9000).toString();
+   // this.restaurantBasic.password = Math.floor(100000 + Math.random() * 9000).toString();
    // this.latitude = 37.795924;
    // this.longitude = -122.406004;
     this.loadMap();

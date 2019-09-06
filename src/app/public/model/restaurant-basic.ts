@@ -1,7 +1,6 @@
 export class RestaurantBasic{
 	public id: string;
 	public name: string;
-	public password?: string;
 	public email?: string;
 	public fax?: string;
 	public imageURL: string;
