@@ -1,118 +1,120 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-button (click)="back()">
-          <ion-icon name="arrow-back"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-      <ion-title>Setup New Restaurant</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content>
-    <div class="content">
-        <form [formGroup]="restaurantForm" (ngSubmit)="onFormSubmit()">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Setup New Restaurant</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="content">
+    <form [formGroup]="restaurantForm" (ngSubmit)="onFormSubmit()">
       <ion-item>
         <ion-avatar (click)="getImage()">
           <ion-img [src]="restaurantBasic?.imageURL?restaurantBasic?.imageURL:'assets/icon/camera-icon.jpg'"></ion-img>
-          </ion-avatar>
-          <small>Restaurant Image</small>
-        </ion-item>
-<ion-item>
-    <ion-label position="floating">Restaurant Name</ion-label>
-    <ion-input type="text" formControlName ="name" [(ngModel)]="restaurantBasic.name"></ion-input>
-   
-  </ion-item>
-  <div class="validation-errors">
-  <ng-container *ngFor="let validation of validation_messages.name">
-      <label *ngIf="restaurantForm.get('name').hasError(validation.type) 
+        </ion-avatar>
+        <small>Restaurant Image</small>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Restaurant Name</ion-label>
+        <ion-input type="text" formControlName="name" [(ngModel)]="restaurantBasic.name"></ion-input>
+
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.name">
+          <label *ngIf="restaurantForm.get('name').hasError(validation.type) 
       && (restaurantForm.get('name').dirty || 
-      restaurantForm.get('name').touched)" 
-      [ngClass] = "'error'">     <ion-icon name="information-circle-outline"></ion-icon>
-      {{validation.message}}</label>
-      </ng-container>
+      restaurantForm.get('name').touched)" [ngClass]="'error'">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            {{validation.message}}
+          </label>
+        </ng-container>
       </div>
       <!-- <ion-item>
           <ion-label position="floating">Restaurant Password(Auto generated)</ion-label>
           <ion-input type="password" formControlName ="password"  [(ngModel)]="restaurantBasic.password" disabled></ion-input>
         </ion-item> -->
-<ion-item>
-    <ion-label position="floating">Restaurant Mobile No.</ion-label>
-    <ion-input formControlName="phone" [(ngModel)]="restaurantBasic.phone"></ion-input>
-  </ion-item>
-  <div class="validation-errors">
-  <ng-container *ngFor="let validation of validation_messages.phone">
-      <label *ngIf="restaurantForm.get('phone').hasError(validation.type) 
+      <ion-item>
+        <ion-label position="floating">Restaurant Mobile No.</ion-label>
+        <ion-input formControlName="phone" [(ngModel)]="restaurantBasic.phone"></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.phone">
+          <label *ngIf="restaurantForm.get('phone').hasError(validation.type) 
       && (restaurantForm.get('phone').dirty || 
-      restaurantForm.get('phone').touched)"  
-      [ngClass] = "'error'"> 
-      <ion-icon name="information-circle-outline"></ion-icon>
-      {{validation.message}} </label>
-      </ng-container>
-</div>
-<ion-item>
+      restaurantForm.get('phone').touched)" [ngClass]="'error'">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            {{validation.message}}
+          </label>
+        </ng-container>
+      </div>
+      <!-- <ion-item>
     <ion-label position="floating">Restaurant Fax</ion-label>
     <ion-input formControlName="fax" [(ngModel)]="restaurantBasic.fax"></ion-input>
    
-  </ion-item>
-  <div class="validation-errors">
-  <ng-container *ngFor="let validation of validation_messages.fax">
-      <label *ngIf="restaurantForm.get('fax').hasError(validation.type) 
+  </ion-item> -->
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.fax">
+          <label *ngIf="restaurantForm.get('fax').hasError(validation.type) 
       && (restaurantForm.get('fax').dirty || 
-      restaurantForm.get('fax').touched)" 
-      [ngClass] = "'error'"> 
-      <ion-icon name="information-circle-outline"></ion-icon>
-      {{validation.message}} </label>
-      </ng-container>
+      restaurantForm.get('fax').touched)" [ngClass]="'error'">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            {{validation.message}}
+          </label>
+        </ng-container>
       </div>
-  <ion-item>
-      <ion-label position="floating">Restaurant Email</ion-label>
-      <ion-input formControlName="email" [(ngModel)]="restaurantBasic.email"></ion-input>
-      
-    </ion-item>
-    <div class="validation-errors">
-    <ng-container *ngFor="let validation of validation_messages.email">
-        <label *ngIf="restaurantForm.get('email').hasError(validation.type) 
+      <ion-item>
+        <ion-label position="floating">Restaurant Email</ion-label>
+        <ion-input formControlName="email" [(ngModel)]="restaurantContactInfo.email"></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.email">
+          <label *ngIf="restaurantForm.get('email').hasError(validation.type) 
         && (restaurantForm.get('email').dirty || 
-        restaurantForm.get('email').touched)" 
-         [ngClass] = "'error'"> 
-         <ion-icon name="information-circle-outline"></ion-icon>
-         {{validation.message}} </label>
-         </ng-container>
-         </div>
-         <div class="map-wrapper">
-            <div id="map_center">
-              <img src="../../assets/icon/map-marker.png"/>
-            </div>
-         <div #map id="map"></div>
-         </div>
-         <ion-icon name="locate" class="locater" (click)="loadMap()"></ion-icon>
-        <!--  <div class="address">
+        restaurantForm.get('email').touched)" [ngClass]="'error'">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            {{validation.message}}
+          </label>
+        </ng-container>
+      </div>
+      <div class="map-wrapper">
+        <div id="map_center">
+          <img src="../../assets/icon/map-marker.png" />
+        </div>
+        <div #map id="map"></div>
+      </div>
+      <ion-icon name="locate" class="locater" (click)="loadMap()"></ion-icon>
+      <!--  <div class="address">
             <span>{{address}}</span>
           </div> -->
-  <ion-item>
-      <ion-label position="floating">Restaurant Address</ion-label>
-      <ion-textarea formControlName="address" [(ngModel)]="restaurantBasic.addressText"></ion-textarea>
-      
-    </ion-item>
-    <div class="validation-errors">
-    <ng-container *ngFor="let validation of validation_messages.address">
-        <label *ngIf="restaurantForm.get('address').hasError(validation.type) 
+      <ion-item>
+        <ion-label position="floating">Restaurant Address</ion-label>
+        <ion-textarea formControlName="address" [(ngModel)]="restaurantBasic.addressText"></ion-textarea>
+
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.address">
+          <label *ngIf="restaurantForm.get('address').hasError(validation.type) 
         && (restaurantForm.get('address').dirty || 
-        restaurantForm.get('address').touched)" 
-         [ngClass] = "'error'">  <ion-icon name="information-circle-outline"></ion-icon>{{validation.message}} </label>
-         </ng-container>
-    </div>
-   <div class="btns">
-     <ion-row>
-       <ion-col size="6">
-        <ion-button  class="createBtn" color="medium"  (click)="back()">close</ion-button>
+        restaurantForm.get('address').touched)" [ngClass]="'error'">
+            <ion-icon name="information-circle-outline"></ion-icon>{{validation.message}}
+          </label>
+        </ng-container>
+      </div>
+      <div class="btns">
+        <ion-row>
+          <ion-col size="6">
+            <ion-button class="createBtn" color="medium" (click)="back()">close</ion-button>
           </ion-col>
           <ion-col size="6">
-              <ion-button type="submit" [disabled]="!restaurantForm.valid" class="createBtn" color="primary" (click)="addRestaurant()">Next</ion-button>
-            </ion-col>
-          </ion-row>
-          </div>
-          </form>
-          </div>
+            <ion-button type="submit" [disabled]="!restaurantForm.valid" class="createBtn" color="primary"
+              (click)="addRestaurant()">Next</ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+    </form>
+  </div>
 </ion-content>

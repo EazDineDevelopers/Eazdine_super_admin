@@ -18,7 +18,7 @@ export class VerificationComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.restaurantService.getSelectedRestaurant().subscribe(restaurantBasic =>{
+    this.restaurantService.getRestaurantBasicInfo().subscribe(restaurantBasic =>{
       this.restaurantBasic = restaurantBasic;
     });
   }

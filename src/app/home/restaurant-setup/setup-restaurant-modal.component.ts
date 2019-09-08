@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ModalController, ActionSheetController, ToastController, NavController } from '@ionic/angular';
 import { CameraOptions, PictureSourceType, Camera } from "@ionic-native/camera/ngx";
-import { Owner } from 'src/app/public/model/owner';
+import { RestaurantOwner } from 'src/app/public/model/restaurants_owners';
 import { RestaurantBasic } from 'src/app/public/model/restaurant-basic';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
@@ -14,6 +14,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { ViewChild } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder, NativeGeocoderOptions, NativeGeocoderResult } from '@ionic-native/native-geocoder/ngx';
+import { RestaurantContactInfo } from 'src/app/public/model/restaurants_contact_info';
 declare var google;
 
 const firestore = firebase.firestore();
@@ -28,7 +29,8 @@ const geocollection: GeoCollectionReference = geofirestore.collection(FirebaseCo
 export class SetupRestaurantModalComponent implements OnInit {
   imageURI: File;
   restaurantBasic: RestaurantBasic = new RestaurantBasic();
-  restaurantOwner: Owner;
+ // restaurantOwner: RestaurantOwner;
+  restaurantContactInfo: RestaurantContactInfo = new RestaurantContactInfo();
   latitude;
   longitude;
   value;
@@ -90,27 +92,30 @@ export class SetupRestaurantModalComponent implements OnInit {
   }
   addRestaurant() {
     this.restaurantBasic.status = false;
-    this.restaurantBasic.registrationNo = null;
-    this.restaurantBasic.ownerEmailVerification = false;
-    this.restaurantBasic.ownerMobileVerification = false;
-    this.restaurantBasic.restaurantEmailVerification = false;
-    let restaurantDetails = this.restaurantBasic;
+    this.restaurantBasic.isOpen = false;
+    this.restaurantContactInfo.phone  = this.restaurantBasic.phone;
+    this.restaurantContactInfo.isEmailVerified = false;
+    this.restaurantContactInfo.isPhoneVerified =false;
+    
+    this.restaurantService.changeRestaurantBasicInfo(this.restaurantBasic);
+    this.restaurantService.changeRestaurantContactInfo(this.restaurantContactInfo);
+    this.router.navigate(['home/ownerSetup']);
 
-   let query = this.firestore
-    .collection("restaurants_basic").add(JSON.parse(JSON.stringify(restaurantDetails)));
-    query.then(value => {
-          console.log('restaurant data added: ',value);
-          this.firestore.collection("restaurants_basic").doc(value.id).update({
-            'id': value.id
-          });
-          geocollection.doc(value.id).set({
-            path:value.path,
-            coordinates: new firebase.firestore.GeoPoint(this.latitude,  this.longitude)
-            });
-          this.restaurantService.changeRestaurantList(value.id);
-          this.storeRestaurantImage(value);
+  //  let query = this.firestore
+  //   .collection("restaurants_basic").add(JSON.parse(JSON.stringify(restaurantDetails)));
+  //   query.then(value => {
+  //        // console.log('restaurant data added: ',value);
+  //         this.firestore.collection("restaurants_basic").doc(value.id).update({
+  //           'id': value.id
+  //         });
+  //         geocollection.doc(value.id).set({
+  //           path:value.path,
+  //           coordinates: new firebase.firestore.GeoPoint(this.latitude,  this.longitude)
+  //           });
+  //         this.restaurantService.changeRestaurantList(value.id);
+  //         this.storeRestaurantImage(value);
           
-    });
+  //   });
   }
   uploadToFirebase(_imageBlobInfo) {
     console.log("uploadToFirebase");
@@ -138,9 +143,9 @@ export class SetupRestaurantModalComponent implements OnInit {
     });
   }
   storeRestaurantImage(value) {
-    const path = `restaurants_basic/${value.id}`;
+    // const path = `restaurants_basic/${value.id}`;
     //    this.angularFireStorage.upload(path,this.imageURI, {});  
-        this.router.navigate(['home/ownerSetup']);
+    this.router.navigate(['home/ownerSetup']);
   }
   getImage() {
     const options: CameraOptions = {

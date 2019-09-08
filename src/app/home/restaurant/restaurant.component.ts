@@ -87,7 +87,7 @@ export class RestaurantComponent implements OnInit {
     this.router.navigate(['home/restaurantDetail']);
   }
   openVerificationPage(restaurant: RestaurantBasic) {
-    this.restaurantService.setSelcetedRestaurant(restaurant);
+    this.restaurantService.changeRestaurantBasicInfo(restaurant);
   this.router.navigate(['home/verification']);
   }
 }

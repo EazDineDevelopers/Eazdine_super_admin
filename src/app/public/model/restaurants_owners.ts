@@ -1,8 +1,6 @@
-export class Owner {
+export class RestaurantOwner {
     public ownerId?: string;
     public imageURL?: string;
-    public fname?: string;
-    public lname?: string;
     public phone?: string;
     public password?: string;
     public restaurants?:any [] = [];
@@ -11,5 +9,7 @@ export class Owner {
     public role?: string;
     public isPhoneVerified?: boolean;
     public isEmailVerified?: boolean;
+    public firstName?: string;
+    public lastName?: string;
 
 }

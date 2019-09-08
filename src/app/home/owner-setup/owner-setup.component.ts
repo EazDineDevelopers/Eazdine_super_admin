@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Owner } from 'src/app/public/model/owner';
+import { RestaurantOwner } from 'src/app/public/model/restaurants_owners';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
@@ -15,7 +15,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class OwnerSetupComponent implements OnInit {
 
-  restaurantOwner: Owner = new Owner();
+  restaurantOwner: RestaurantOwner = new RestaurantOwner();
   //restaurantOwner : any = {};
   restaurantId;
   password: any;
