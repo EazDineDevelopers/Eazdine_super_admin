@@ -21,7 +21,7 @@
    </ion-item>
 <ion-item>
    <ion-label position="floating">Owner First Name</ion-label>
-   <ion-input formControlName ="fname" [(ngModel)]="restaurantOwner.fname"></ion-input>
+   <ion-input formControlName ="fname" [(ngModel)]="restaurantOwner.firstName"></ion-input>
    <ng-container *ngFor="let validation of validation_messages.fname">
       <label *ngIf="ownerForm.get('fname').hasError(validation.type) 
       && (ownerForm.get('fname').dirty || 
@@ -31,7 +31,7 @@
  </ion-item>
  <ion-item>
      <ion-label position="floating">Owner Last Name</ion-label>
-     <ion-input formControlName="lname" [(ngModel)]="restaurantOwner.lname"></ion-input>
+     <ion-input formControlName="lname" [(ngModel)]="restaurantOwner.lastName"></ion-input>
      <ng-container *ngFor="let validation of validation_messages.lname">
         <label *ngIf="ownerForm.get('lname').hasError(validation.type) 
         && (ownerForm.get('lname').dirty || 
@@ -90,7 +90,7 @@
            <ion-button class="createBtn" color="medium"  (click)="back()">Previous</ion-button>
              </ion-col>
              <ion-col size="6">
-                 <ion-button type="submit" [disabled]="!ownerForm.valid" class="createBtn" color="primary" (click)="addOwner()">Add</ion-button>
+                 <ion-button type="submit" [disabled]="!ownerForm.valid" class="createBtn" color="primary" (click)="restaurantSetup()">Add</ion-button>
                </ion-col>
              </ion-row>
              </div>

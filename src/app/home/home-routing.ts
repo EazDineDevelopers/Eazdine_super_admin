@@ -8,6 +8,7 @@ import { AuthGuardService } from '../public/service/auth-guard.service';
 import { SetupRestaurantModalComponent } from './restaurant-setup/setup-restaurant-modal.component';
 import { OwnerSetupComponent } from './owner-setup/owner-setup.component';
 import { VerificationComponent } from './verification/verification.component';
+import { RestaurantsAccountDetailComponent } from 'src/app/home/restaurant-setup/restaurants-account-detail/restaurants-account-detail.component';
 const routes: Routes = [
   {
     path: "",
@@ -30,6 +31,11 @@ const routes: Routes = [
         path: 'restaurantSetup',
         component: SetupRestaurantModalComponent
       },
+      {
+        path: 'restaurantAccountDetail',
+        component: RestaurantsAccountDetailComponent
+      },
+      
       {
         path: 'ownerSetup',
         component: OwnerSetupComponent

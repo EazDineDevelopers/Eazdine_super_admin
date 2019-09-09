@@ -6,7 +6,7 @@ export class RestaurantBasic{
 	public rating: number;
 	public offerText:string;
 	public phone: string;
-	public status: boolean;
+	public status: string;
 	public offers:any [] = [];
 	public addressText: string;
 	

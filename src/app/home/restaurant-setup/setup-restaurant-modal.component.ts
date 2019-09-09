@@ -36,9 +36,7 @@ export class SetupRestaurantModalComponent implements OnInit {
   value;
   restaurantForm = new FormGroup({
   name : new FormControl('', Validators.required),
- // password: new FormControl(Validators.required),
   phone : new FormControl('', [Validators.required,Validators.maxLength(13)]),
-  fax : new FormControl('', [Validators.required]),
   email : new FormControl('', Validators.compose([
 		Validators.required,
 		Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
@@ -55,9 +53,6 @@ export class SetupRestaurantModalComponent implements OnInit {
       ],
       'phone': [
         { type: 'required', message: 'Phone is required.' }
-      ],
-      'fax': [
-        { type: 'required', message: 'Fax is required.' }
       ],
       'email': [
         { type: 'required', message: 'Email is required.' },
@@ -91,7 +86,7 @@ export class SetupRestaurantModalComponent implements OnInit {
     this.loadMap();
   }
   addRestaurant() {
-    this.restaurantBasic.status = false;
+    this.restaurantBasic.status = "INACTIVE";
     this.restaurantBasic.isOpen = false;
     this.restaurantContactInfo.phone  = this.restaurantBasic.phone;
     this.restaurantContactInfo.isEmailVerified = false;
@@ -99,7 +94,7 @@ export class SetupRestaurantModalComponent implements OnInit {
     
     this.restaurantService.changeRestaurantBasicInfo(this.restaurantBasic);
     this.restaurantService.changeRestaurantContactInfo(this.restaurantContactInfo);
-    this.router.navigate(['home/ownerSetup']);
+    this.router.navigate(['home/restaurantAccountDetail']);
 
   //  let query = this.firestore
   //   .collection("restaurants_basic").add(JSON.parse(JSON.stringify(restaurantDetails)));

@@ -8,7 +8,7 @@ import { RestaurantOwner } from '../model/restaurants_owners';
 @Injectable()
 
 export class RestaurantService {
-    restaurantList = new ReplaySubject<any>(1);
+   // restaurantList = new ReplaySubject<any>(1);
     restaurantBasicInfo = new ReplaySubject<RestaurantBasic>(1);
     restaurantContactInfo = new ReplaySubject<RestaurantContactInfo>(1);
     restaurantOwner = new ReplaySubject<RestaurantOwner>(1);
@@ -37,12 +37,12 @@ export class RestaurantService {
         return this.restaurantAccountDetail.asObservable();
     }
 
-    changeRestaurantList(restaurantList: any) {
-        this.restaurantList.next(restaurantList)
-    }
-    getRestaurantList() {
-        return this.restaurantList.asObservable();
-    }
+    // changeRestaurantList(restaurantList: any) {
+    //     this.restaurantList.next(restaurantList)
+    // }
+    // getRestaurantList() {
+    //     return this.restaurantList.asObservable();
+    // }
     
     changeRestaurantBasicInfo(restaurantBasicInfo: RestaurantBasic) {
         this.restaurantBasicInfo.next(restaurantBasicInfo)

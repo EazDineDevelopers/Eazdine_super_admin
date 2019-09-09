@@ -11,41 +11,80 @@
 
 <ion-content>
   <div class="content">
-    <form [formGroup]="restaurantForm" (ngSubmit)="onFormSubmit()">
-      
+    <form [formGroup]="restaurantForm">
+
       <ion-item>
         <ion-label position="floating">Account Number</ion-label>
-        <ion-input type="text" formControlName="name" [(ngModel)]="restaurantBasic.name"></ion-input>
-
+        <ion-input type="text" formControlName="accountNumber" [(ngModel)]="restaurantAccountDetail.accountNumber"></ion-input>
       </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.accountNumber">
+          <label *ngIf="restaurantForm.get('accountNumber').hasError(validation.type) 
+      && (restaurantForm.get('accountNumber').dirty || 
+      restaurantForm.get('accountNumber').touched)" [ngClass]="'error'">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            {{validation.message}}
+          </label>
+        </ng-container>
+      </div>
+
+
       <ion-item>
         <ion-label position="floating">Bank Name</ion-label>
-        <ion-input formControlName="phone" [(ngModel)]="restaurantBasic.phone"></ion-input>
+        <ion-input formControlName="bankName" [(ngModel)]="restaurantAccountDetail.bankName"></ion-input>
       </ion-item>
-     
-    <ion-item>
-    <ion-label position="floating">Branch Name</ion-label>
-    <ion-input formControlName="fax" [(ngModel)]="restaurantBasic.fax"></ion-input>
-   
-  </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.bankName">
+          <label *ngIf="restaurantForm.get('bankName').hasError(validation.type) 
+      && (restaurantForm.get('bankName').dirty || 
+      restaurantForm.get('bankName').touched)" [ngClass]="'error'">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            {{validation.message}}
+          </label>
+        </ng-container>
+      </div>
+
+      <ion-item>
+        <ion-label position="floating">Branch Name</ion-label>
+        <ion-input formControlName="branchName" [(ngModel)]="restaurantAccountDetail.branchName"></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.branchName">
+          <label *ngIf="restaurantForm.get('branchName').hasError(validation.type) 
+      && (restaurantForm.get('branchName').dirty || 
+      restaurantForm.get('branchName').touched)" [ngClass]="'error'">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            {{validation.message}}
+          </label>
+        </ng-container>
+      </div>
 
       <ion-item>
         <ion-label position="floating">IFSC Code</ion-label>
-        <ion-input formControlName="email" [(ngModel)]="restaurantContactInfo.email"></ion-input>
+        <ion-input formControlName="ifscCode" [(ngModel)]="restaurantAccountDetail.ifscCode"></ion-input>
       </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.ifscCode">
+          <label *ngIf="restaurantForm.get('ifscCode').hasError(validation.type) 
+      && (restaurantForm.get('ifscCode').dirty || 
+      restaurantForm.get('ifscCode').touched)" [ngClass]="'error'">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            {{validation.message}}
+          </label>
+        </ng-container>
+      </div>
 
-   
       <div class="btns">
         <ion-row>
           <ion-col size="6">
-            <ion-button class="createBtn" color="medium" (click)="back()">close</ion-button>
+            <ion-button class="createBtn" color="medium" (click)="back()">previous</ion-button>
           </ion-col>
           <ion-col size="6">
-            <ion-button type="submit" [disabled]="!restaurantForm.valid" class="createBtn" color="primary"
-              (click)="addRestaurant()">Next</ion-button>
+            <ion-button type="submit" [disabled]="!restaurantForm.valid" class="createBtn" color="primary" (click)="addRestaurantAccount()">Next</ion-button>
           </ion-col>
         </ion-row>
       </div>
+
     </form>
   </div>
 </ion-content>

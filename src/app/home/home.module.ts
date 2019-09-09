@@ -12,6 +12,7 @@ import { SetupRestaurantModalComponent } from './restaurant-setup/setup-restaura
 import { OwnerSetupComponent } from './owner-setup/owner-setup.component';
 import { VerificationComponent } from './verification/verification.component';
 import { VerifyModalComponent } from './verify-modal/verify-modal.component';
+import { RestaurantsAccountDetailComponent } from 'src/app/home/restaurant-setup/restaurants-account-detail/restaurants-account-detail.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { VerifyModalComponent } from './verify-modal/verify-modal.component';
     SetupRestaurantModalComponent,
     OwnerSetupComponent,
     VerificationComponent,
-    VerifyModalComponent
+    VerifyModalComponent,
+    RestaurantsAccountDetailComponent
   ]
 })
 export class HomePageModule {}
