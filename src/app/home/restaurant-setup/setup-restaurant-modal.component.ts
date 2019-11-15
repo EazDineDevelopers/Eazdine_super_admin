@@ -42,6 +42,7 @@ export class SetupRestaurantModalComponent implements OnInit {
 		Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
 	])),
   address : new FormControl('', [Validators.required]),
+  zip: new FormControl('', [Validators.required])
   });
   validation_messages = {
     'name': [
@@ -61,6 +62,9 @@ export class SetupRestaurantModalComponent implements OnInit {
       'address': [
         { type: 'required', message: 'Address is required.' }
       ],
+      'zip': [
+        {type: 'required', message: 'Zip code is required.'}
+      ]
     }
    mapElement: ElementRef;
     map: any;

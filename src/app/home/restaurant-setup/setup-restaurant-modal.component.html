@@ -80,6 +80,20 @@
           </label>
         </ng-container>
       </div>
+      <ion-item>
+        <ion-label position="floating">Restaurant Zip</ion-label>
+        <ion-input formControlName="zip" [(ngModel)]="restaurantBasic.zip"></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.zip">
+          <label *ngIf="restaurantForm.get('zip').hasError(validation.type) 
+      && (restaurantForm.get('zip').dirty || 
+      restaurantForm.get('zip').touched)" [ngClass]="'error'">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            {{validation.message}}
+          </label>
+        </ng-container>
+      </div>
       <div class="map-wrapper">
         <div id="map_center">
           <img src="../../assets/icon/map-marker.png" />

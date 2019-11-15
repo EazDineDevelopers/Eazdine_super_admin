@@ -12,4 +12,5 @@ export class FirebaseCollection {
     public static RESTAURANT_MENUS = 'restaurants_menus';
     public static RESTAURANT_MENUS_DETAILS = "restaurants_menus_details";
     public static RESTAURANT_OWNERS = 'restaurants_owners';
+    public static TAX_DETAILS = 'tax_details';
 }

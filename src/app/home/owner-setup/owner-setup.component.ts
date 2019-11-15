@@ -113,9 +113,14 @@ export class OwnerSetupComponent implements OnInit {
       let basicquery = this.firestore
         .collection("restaurants_basic").add(JSON.parse(JSON.stringify(this.restaurantBasicInfo)));
       basicquery.then(value => {
-
         this.firestore.collection("restaurants_basic").doc(value.id).update({
           'id': value.id
+        }).then(data => {
+          this.firestore.collection(FirebaseCollection.TAX_DETAILS).doc(this.restaurantBasicInfo.zip).set({
+            postalcode: this.restaurantBasicInfo.zip
+          }).then(res => {
+            this.presentToast('Added tax details successfully');
+          });
         });
 
         this.restaurantId=value.id

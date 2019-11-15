@@ -9,5 +9,5 @@ export class RestaurantBasic{
 	public status: string;
 	public offers:any [] = [];
 	public addressText: string;
-	
+	public zip: string;
 }
