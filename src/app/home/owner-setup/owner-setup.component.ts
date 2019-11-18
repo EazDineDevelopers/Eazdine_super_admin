@@ -152,7 +152,7 @@ export class OwnerSetupComponent implements OnInit {
           this.restaurantOwner.email, this.password);
         if (reg) {
           this.restaurantOwner.restaurants.push(this.restaurantId);
-          this.restaurantOwner.role = 'REST_OWNER';
+          this.restaurantOwner.role = 'OWNER';
           this.restaurantOwner.isEmailVerified = true;
           this.restaurantOwner.isPhoneVerified = false;
           this.restaurantOwner.ownerId = reg.user.uid;
@@ -160,6 +160,10 @@ export class OwnerSetupComponent implements OnInit {
           let ownerDetail = this.restaurantOwner;
           let query = this.firestore
             .collection("restaurants_owners").doc(reg.user.uid).set(JSON.parse(JSON.stringify(ownerDetail))).then(res => {
+              this.router.navigate(['home/restaurants']);
+            });
+            this.firestore
+            .collection("restaurants_employee").doc(reg.user.uid).set(JSON.parse(JSON.stringify(ownerDetail))).then(res => {
               this.router.navigate(['home/restaurants']);
             });
         }
