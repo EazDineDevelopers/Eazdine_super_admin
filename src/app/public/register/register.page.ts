@@ -35,11 +35,11 @@ export class RegisterPage implements OnInit {
       let reg = await  this.afAuth.auth.createUserWithEmailAndPassword(
         this.resgisterDetail.email,this.password);
       if (reg) {
-        this.resgisterDetail.role='SUPER ADMIN';
+        this.resgisterDetail.role='SUPER_ADMIN';
         this.resgisterDetail.isEmailVerify=true;
         let data=this.resgisterDetail;
         this.firestore
-        .collection("users").doc(reg.user.uid).set(JSON.parse(JSON.stringify(data))).then(res => {
+        .collection("super_admin").doc(reg.user.uid).set(JSON.parse(JSON.stringify(data))).then(res => {
               console.log(res);
              this.router.navigate(['login']);
           });
