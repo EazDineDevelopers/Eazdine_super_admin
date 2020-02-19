@@ -107,6 +107,12 @@ export class OwnerSetupComponent implements OnInit {
   }
 
 
+  generateEmpCode() {
+    return Math.floor(1000 + Math.random() * 9000).toString();
+  }
+
+
+
   async  restaurantSetup() {
 
     try {
@@ -162,6 +168,9 @@ export class OwnerSetupComponent implements OnInit {
             .collection("restaurants_owners").doc(reg.user.uid).set(JSON.parse(JSON.stringify(ownerDetail))).then(res => {
               this.router.navigate(['home/restaurants']);
             });
+          
+          //Generate EmpCode
+          ownerDetail.empCode = this.generateEmpCode()
             this.firestore
             .collection("restaurants_employee").doc(reg.user.uid).set(JSON.parse(JSON.stringify(ownerDetail))).then(res => {
               this.router.navigate(['home/restaurants']);

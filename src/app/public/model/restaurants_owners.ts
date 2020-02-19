@@ -11,5 +11,6 @@ export class RestaurantOwner {
     public isEmailVerified?: boolean;
     public firstName?: string;
     public lastName?: string;
+    public empCode?: string;
 
 }
